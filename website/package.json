@@ -7,6 +7,7 @@
     "start": "webpack serve --mode development",
     "build": "webpack --mode production",
     "deploy": "bash deploy.sh",
+    "deploy-gh-pages": "npm run build && node scripts/deploy-gh-pages.js",
     "serve-local": "bash serve-gh-pages.sh",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

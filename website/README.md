@@ -67,21 +67,26 @@ The built files will be located in the `dist` directory.
 The website is configured to be deployed to GitHub Pages. To deploy the website:
 
 ```
+# 使用Node.js脚本部署（推荐）
+npm run deploy-gh-pages
+
+# 或使用Bash脚本部署
 npm run deploy
-# or
+# 或直接运行
 ./deploy.sh
 ```
 
-This script will:
-1. Build the website
-2. Copy the built files to the `../docs` directory
-3. Commit the changes to git
-4. Push the changes to GitHub
+部署过程会执行以下操作:
+1. 构建网站
+2. 复制构建文件到 `../docs` 目录
+3. 创建必要的GitHub Pages文件（如.nojekyll）
+4. 提交更改到Git
+5. 推送更改到GitHub
 
-After the deployment is complete, the website will be available at:
+部署完成后，网站将在以下地址可访问:
 https://cyberspacesec.github.io/go-iconhash/
 
-Note: GitHub may take a few minutes to process the changes.
+注意: GitHub可能需要几分钟时间来处理更改。
 
 ### Local Development Server
 
