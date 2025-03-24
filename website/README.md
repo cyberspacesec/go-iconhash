@@ -64,24 +64,27 @@ The built files will be located in the `dist` directory.
 
 ### GitHub Pages Deployment
 
-The website is configured to be deployed to GitHub Pages. To deploy the website:
+网站配置为部署到GitHub Pages专用的gh-pages分支。要部署网站：
 
 ```
 # 使用Node.js脚本部署（推荐）
 npm run deploy-gh-pages
 
-# 或使用Bash脚本部署
+# 或使用Bash脚本部署（旧方式，部署到docs目录）
 npm run deploy
 # 或直接运行
 ./deploy.sh
 ```
 
-部署过程会执行以下操作:
+新的部署过程会执行以下操作:
 1. 构建网站
-2. 复制构建文件到 `../docs` 目录
-3. 创建必要的GitHub Pages文件（如.nojekyll）
-4. 提交更改到Git
-5. 推送更改到GitHub
+2. 创建临时目录
+3. 克隆或创建gh-pages分支
+4. 将构建文件复制到临时目录
+5. 提交并推送到gh-pages分支
+6. 清理临时目录
+
+> **重要**: 在GitHub仓库设置中，确保将GitHub Pages的发布源设置为`gh-pages`分支，而不是`main`分支的`/docs`文件夹。
 
 部署完成后，网站将在以下地址可访问:
 https://cyberspacesec.github.io/go-iconhash/

@@ -6,7 +6,7 @@
   "scripts": {
     "start": "webpack serve --mode development",
     "build": "webpack --mode production",
-    "deploy": "bash deploy.sh",
+    "deploy": "echo '警告: 此命令已过时，使用的是旧的部署方式(部署到main分支的docs目录)。请使用npm run deploy-gh-pages代替。' && bash deploy.sh",
     "deploy-gh-pages": "npm run build && node scripts/deploy-gh-pages.js",
     "serve-local": "bash serve-gh-pages.sh",
     "test": "echo \"Error: no test specified\" && exit 1"
