@@ -112,12 +112,36 @@ To add support for a new language:
 ## Project Structure
 
 - `src/components/` - React components
+  - `ApiReference.tsx` - API文档组件
+  - `Examples.tsx` - 使用示例组件
+  - `Features.tsx` - 功能特性组件
+  - `Footer.tsx` - 页脚组件
+  - `Header.tsx` - 页眉组件
+  - `Hero.tsx` - 主页英雄区域组件
+  - `Installation.tsx` - 安装指南组件
+  - `McpSection.tsx` - Model Context Protocol部分组件
 - `src/locales/` - Translation files
+  - `en/translation.json` - 英文翻译文件
+  - `zh/translation.json` - 中文翻译文件
 - `src/styles/` - Global styles
 - `src/assets/` - Static assets like images
 - `src/i18n.ts` - i18next configuration
 - `src/App.tsx` - Main application component
 - `src/index.tsx` - Application entry point
+
+## API Endpoints
+
+The website documentation covers the following API endpoints:
+
+- `/health` - Health check endpoint (no authentication required)
+- `/hash/url` - Calculate hash from a URL
+- `/hash/file` - Calculate hash from an uploaded file
+- `/hash/base64` - Calculate hash from base64 encoded data
+- `/mcp` - Model Context Protocol endpoint
+
+## Development Notes
+
+After making changes to the IconHash tool's structure or functionality, please ensure that the website documentation is updated accordingly. The website serves as the primary documentation source for users, so it's important to keep it in sync with the actual code behavior.
 
 ## License
 

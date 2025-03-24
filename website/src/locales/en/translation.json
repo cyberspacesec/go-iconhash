@@ -93,6 +93,7 @@
     "base64Desc": "Calculate hash from base64 encoded data",
     "mcpDesc": "Model Context Protocol interaction",
     "authDescription": "If an authentication token is set, all requests (except /health) must include the token in one of these ways:",
+    "authNote": "Authentication is optional. When the server is started with an auth token, all API endpoints (except health check) will require authentication. This provides security for your API service.",
     "urlExample": "URL Endpoint Example",
     "fileExample": "File Upload Example"
   },

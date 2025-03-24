@@ -134,6 +134,9 @@ const ApiReference: React.FC = () => {
             <Text code>Authorization: Bearer your-token</Text>
             <Text code>?token=your-token</Text>
           </Space>
+          <Paragraph style={{ marginTop: '1rem' }}>
+            {t('api.authNote')}
+          </Paragraph>
         </SubSection>
         
         <SubSection>
@@ -141,18 +144,35 @@ const ApiReference: React.FC = () => {
           <Card title={t('api.urlExample')} bordered={false}>
             <CodeBlock>
 {`# Get hash from URL
-curl -X GET "http://localhost:8080/hash/url?url=https://example.com/favicon.ico"
+curl -X GET "http://localhost:8000/hash/url?url=https://example.com/favicon.ico"
 
 # With authentication
-curl -X GET "http://localhost:8080/hash/url?url=https://example.com/favicon.ico" \\
-  -H "Authorization: Bearer your-token"`}
+curl -X GET "http://localhost:8000/hash/url?url=https://example.com/favicon.ico" \\
+  -H "Authorization: Bearer your-token"
+
+# With query parameter authentication
+curl -X GET "http://localhost:8000/hash/url?url=https://example.com/favicon.ico&token=your-token"
+
+# With output format
+curl -X GET "http://localhost:8000/hash/url?url=https://example.com/favicon.ico&format=shodan"`}
             </CodeBlock>
           </Card>
           <Divider />
           <Card title={t('api.fileExample')} bordered={false}>
             <CodeBlock>
 {`# Upload a file for hashing
-curl -X POST "http://localhost:8080/hash/file" \\
+curl -X POST "http://localhost:8000/hash/file" \\
+  -F "file=@/path/to/favicon.ico" \\
+  -H "Content-Type: multipart/form-data"
+
+# With authentication
+curl -X POST "http://localhost:8000/hash/file" \\
+  -F "file=@/path/to/favicon.ico" \\
+  -H "Content-Type: multipart/form-data" \\
+  -H "Authorization: Bearer your-token"
+
+# With output options
+curl -X POST "http://localhost:8000/hash/file?uint32=true&format=fofa" \\
   -F "file=@/path/to/favicon.ico" \\
   -H "Content-Type: multipart/form-data"`}
             </CodeBlock>

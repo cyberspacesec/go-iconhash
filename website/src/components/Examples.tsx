@@ -69,13 +69,16 @@ const Examples: React.FC = () => {
             <CodeBlock>
               <pre>
 {`# Basic usage
-iconhash https://www.example.com/favicon.ico
+iconhash url https://www.example.com
 
 # With debug output
-iconhash -d -u https://www.example.com/favicon.ico
+iconhash url -d https://www.example.com
 
 # With Shodan format
-iconhash -u https://www.example.com/favicon.ico --shodan --fofa=false`}
+iconhash url https://www.example.com --shodan
+
+# With URL flag explicitly
+iconhash url -u https://www.example.com/favicon.ico`}
               </pre>
             </CodeBlock>
           </TabPane>
@@ -85,13 +88,16 @@ iconhash -u https://www.example.com/favicon.ico --shodan --fofa=false`}
             <CodeBlock>
               <pre>
 {`# Basic usage
-iconhash favicon.ico
+iconhash file favicon.ico
 
 # With explicit file flag
-iconhash -f favicon.ico
+iconhash file -f favicon.ico
 
-# With multiple output formats
-iconhash -f favicon.ico --shodan --fofa`}
+# With uint32 format
+iconhash file favicon.ico --uint32
+
+# With shorthand syntax
+iconhash -- favicon.ico`}
               </pre>
             </CodeBlock>
           </TabPane>
@@ -101,10 +107,16 @@ iconhash -f favicon.ico --shodan --fofa`}
             <CodeBlock>
               <pre>
 {`# Basic usage
-iconhash -b64 encoded.txt
+iconhash base64 encoded.txt
 
-# With custom timeout
-iconhash -b64 encoded.txt -t 30`}
+# With explicit base64 flag
+iconhash base64 -b encoded.txt
+
+# With FOFA format output
+iconhash base64 encoded.txt --fofa
+
+# With shorthand syntax
+iconhash -b encoded.txt`}
               </pre>
             </CodeBlock>
           </TabPane>
@@ -113,14 +125,17 @@ iconhash -b64 encoded.txt -t 30`}
             <ExampleDescription>{t('examples.apiServer.description')}</ExampleDescription>
             <CodeBlock>
               <pre>
-{`# Start on default port (8080)
+{`# Start on default port (8000)
 iconhash server
 
 # Start on custom port with debug output
 iconhash server -p 3000 -d
 
-# Start with authentication
-iconhash server -a "your-secret-token"`}
+# Start with authentication token
+iconhash server --auth-token "your-secret-token"
+
+# Bind to specific host with custom timeouts
+iconhash server --host 0.0.0.0 --read-timeout 60 --write-timeout 60`}
               </pre>
             </CodeBlock>
           </TabPane>

@@ -93,6 +93,7 @@
     "base64Desc": "从Base64编码数据计算哈希",
     "mcpDesc": "模型上下文协议交互",
     "authDescription": "如果设置了认证令牌，所有请求（除了/health）必须以下列方式之一包含令牌：",
+    "authNote": "认证是可选的。当服务器使用认证令牌启动时，所有API端点（除了健康检查）都将需要认证。这为您的API服务提供了安全保障。",
     "urlExample": "URL端点示例",
     "fileExample": "文件上传示例"
   },
