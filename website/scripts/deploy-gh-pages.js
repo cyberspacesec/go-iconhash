@@ -35,22 +35,39 @@ function log(message, color = colors.blue) {
 }
 
 // 辅助函数 - 执行命令
-function executeCommand(command, cwd = process.cwd()) {
+function executeCommand(command, cwd = process.cwd(), silent = false) {
   try {
-    log(`执行命令: ${command}`, colors.yellow);
-    execSync(command, { stdio: 'inherit', cwd });
+    if (!silent) {
+      log(`执行命令: ${command}`, colors.yellow);
+    }
+    
+    const options = { cwd };
+    if (silent) {
+      options.stdio = 'pipe';
+    } else {
+      options.stdio = 'inherit';
+    }
+    
+    execSync(command, options);
     return true;
   } catch (error) {
-    log(`命令执行失败: ${error}`, colors.red);
+    if (!silent) {
+      log(`命令执行失败: ${error.message}`, colors.red);
+    }
     return false;
   }
 }
 
 // 清理函数
 function cleanup() {
-  if (fs.existsSync(TEMP_DIR)) {
-    log(`清理临时目录: ${TEMP_DIR}`);
-    fs.rmSync(TEMP_DIR, { recursive: true, force: true });
+  try {
+    if (fs.existsSync(TEMP_DIR)) {
+      log(`清理临时目录: ${TEMP_DIR}`);
+      fs.rmSync(TEMP_DIR, { recursive: true, force: true });
+    }
+  } catch (error) {
+    log(`清理失败: ${error.message}`, colors.yellow);
+    log('请手动删除临时目录', colors.yellow);
   }
 }
 
@@ -93,10 +110,15 @@ function deployToGitHubPages() {
     // 检查gh-pages分支是否存在
     let branchExists = false;
     try {
-      execSync(`git ls-remote --heads ${repoUrl} ${BRANCH}`, { stdio: 'pipe' });
-      branchExists = true;
-      log(`${BRANCH} 分支已存在`);
+      const output = execSync(`git ls-remote --heads ${repoUrl} ${BRANCH}`, { stdio: 'pipe' }).toString().trim();
+      branchExists = output.length > 0;
+      if (branchExists) {
+        log(`${BRANCH} 分支已存在`);
+      } else {
+        log(`${BRANCH} 分支不存在，将创建新分支`);
+      }
     } catch (error) {
+      log(`检查分支时出错: ${error.message}`, colors.yellow);
       log(`${BRANCH} 分支不存在，将创建新分支`);
     }
 
@@ -186,8 +208,15 @@ function deployToGitHubPages() {
 
     // 强制推送到gh-pages分支
     log(`推送到 ${BRANCH} 分支...`);
-    if (!executeCommand(`git push -f origin ${BRANCH}`, TEMP_DIR)) {
-      throw new Error(`推送到 ${BRANCH} 分支失败`);
+    // 如果是新创建的分支，我们需要不同的推送命令
+    if (!branchExists) {
+      if (!executeCommand(`git push -u origin ${BRANCH}`, TEMP_DIR)) {
+        throw new Error(`推送到 ${BRANCH} 分支失败`);
+      }
+    } else {
+      if (!executeCommand(`git push -f origin ${BRANCH}`, TEMP_DIR)) {
+        throw new Error(`推送到 ${BRANCH} 分支失败`);
+      }
     }
 
     log('🎉 部署成功完成！', colors.green);
