@@ -40,6 +40,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './src/index.html',
       favicon: './src/assets/images/favicon.svg',
+      publicPath: process.env.NODE_ENV === 'production' ? '/go-iconhash/' : '/',
     }),
   ],
   devServer: {
