@@ -160,6 +160,7 @@ func (s *Server) handleHealth(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(map[string]string{
 		"status":  "ok",
 		"version": "v1",
+		"time":    time.Now().Format(time.RFC3339),
 	})
 }
 
