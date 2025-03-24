@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  # 服务器模式
+  server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: iconhash:latest
+    container_name: iconhash-server
+    command: server -a 0.0.0.0 -p 8080
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
+    environment:
+      - TZ=UTC
+    volumes:
+      - ./samples:/app/samples # 可选：挂载样本目录
+    
+  # 命令行模式 (示例配置，实际使用时会被命令行参数替换)
+  cli:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: iconhash:latest
+    container_name: iconhash-cli
+    # 默认命令，可以被override
+    command: -u https://example.com/favicon.ico
+    volumes:
+      - ./samples:/app/samples # 可选：挂载样本目录 

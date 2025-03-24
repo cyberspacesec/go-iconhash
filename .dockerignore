@@ -1,0 +1,55 @@
+# Git
+.git
+.gitignore
+
+# Docker
+Dockerfile
+.dockerignore
+docker-compose.yml
+
+# Build artifacts and binaries
+/iconhash
+/dist
+/build
+/bin
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Test files
+*_test.go
+*.test
+*.prof
+*.cover
+/test
+
+# Node.js (for website)
+node_modules
+website/node_modules
+website/dist
+website/build
+
+# IDE files
+.idea
+.vscode
+*.swp
+*.swo
+
+# macOS
+.DS_Store
+
+# Logs and temporary files
+*.log
+logs/
+tmp/
+
+# Documentation
+*.md
+docs/
+
+# GitHub specific files
+LICENSE
+CONTRIBUTING.md
+CODE_OF_CONDUCT.md 

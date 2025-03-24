@@ -1,0 +1,124 @@
+{
+  "lang": "en",
+  "title": "IconHash - Favicon Hash Calculator",
+  "header": {
+    "home": "Home",
+    "features": "Features",
+    "documentation": "Documentation",
+    "examples": "Examples",
+    "api": "API",
+    "mcp": "MCP",
+    "github": "GitHub"
+  },
+  "hero": {
+    "title": "IconHash",
+    "subtitle": "A powerful tool for calculating favicon hashes used in cybersecurity reconnaissance",
+    "description": "Calculate MMH3 (MurmurHash3) hash of favicons for finding similar websites in cybersecurity research",
+    "download": "Download",
+    "tryOnline": "Try Online",
+    "viewOnGitHub": "View on GitHub"
+  },
+  "features": {
+    "title": "Features",
+    "multipleInputs": {
+      "title": "Multiple Input Sources",
+      "description": "Process favicons from URLs, local files, or base64 encoded data"
+    },
+    "multipleOutputs": {
+      "title": "Multiple Output Formats",
+      "description": "Get results as plain hash, Fofa format, or Shodan format"
+    },
+    "apiServer": {
+      "title": "HTTP API Server",
+      "description": "Run as a server with RESTful API endpoints"
+    },
+    "mcpSupport": {
+      "title": "AI Integration",
+      "description": "Model Context Protocol support for AI integration"
+    },
+    "docker": {
+      "title": "Docker Support",
+      "description": "Run in containerized environments"
+    },
+    "cli": {
+      "title": "Modern CLI",
+      "description": "Intuitive command-line interface with rich documentation"
+    }
+  },
+  "installation": {
+    "title": "Installation",
+    "fromSource": {
+      "title": "From Source",
+      "description": "Clone the repository and build the binary"
+    },
+    "usingGo": {
+      "title": "Using Go",
+      "description": "Install directly using Go"
+    },
+    "usingDocker": {
+      "title": "Using Docker",
+      "description": "Run with Docker"
+    }
+  },
+  "examples": {
+    "title": "Usage Examples",
+    "hashFromUrl": {
+      "title": "Hash from URL",
+      "description": "Calculate hash from a website favicon URL"
+    },
+    "hashFromFile": {
+      "title": "Hash from File",
+      "description": "Calculate hash from a local favicon file"
+    },
+    "hashFromBase64": {
+      "title": "Hash from Base64",
+      "description": "Calculate hash from base64 encoded data"
+    },
+    "apiServer": {
+      "title": "API Server",
+      "description": "Start the HTTP API server"
+    }
+  },
+  "api": {
+    "title": "API Reference",
+    "description": "The iconhash tool includes an HTTP API server that allows you to calculate favicon hashes via HTTP requests",
+    "endpoints": "Endpoints",
+    "method": "Method",
+    "description": "Description",
+    "authentication": "Authentication",
+    "examples": "Examples",
+    "healthDesc": "Health check",
+    "urlDesc": "Calculate hash from URL",
+    "fileDesc": "Calculate hash from uploaded file",
+    "base64Desc": "Calculate hash from base64 encoded data",
+    "mcpDesc": "Model Context Protocol interaction",
+    "authDescription": "If an authentication token is set, all requests (except /health) must include the token in one of these ways:",
+    "urlExample": "URL Endpoint Example",
+    "fileExample": "File Upload Example"
+  },
+  "mcp": {
+    "title": "Model Context Protocol",
+    "description": "The iconhash tool supports the Model Context Protocol, which allows integration with AI services",
+    "example": "Example Request"
+  },
+  "useCases": {
+    "title": "Use Cases",
+    "reconnaissance": {
+      "title": "Cybersecurity Reconnaissance",
+      "description": "Find websites with the same favicon in search engines"
+    },
+    "integration": {
+      "title": "Integration with Other Tools",
+      "description": "Build automation scripts and security scanning tools"
+    },
+    "ai": {
+      "title": "AI Integration",
+      "description": "Create conversational interfaces and intelligent security tools"
+    }
+  },
+  "footer": {
+    "copyright": "© 2023 CyberSpaceSec. All rights reserved.",
+    "license": "Released under the MIT License",
+    "language": "Language"
+  }
+} 

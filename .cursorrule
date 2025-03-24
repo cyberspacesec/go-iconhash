@@ -1,0 +1,66 @@
+{
+  "defaultLinters": true,
+  "formatting": {
+    "gofmt": {
+      "enabled": true,
+      "options": {
+        "simplify": true
+      }
+    },
+    "goimports": {
+      "enabled": true,
+      "options": {
+        "localPrefix": "github.com/cyberspacesec/go-iconhash"
+      }
+    }
+  },
+  "linting": {
+    "golint": {
+      "enabled": true
+    },
+    "govet": {
+      "enabled": true
+    },
+    "errcheck": {
+      "enabled": true
+    },
+    "staticcheck": {
+      "enabled": true
+    }
+  },
+  "analysis": {
+    "unusedparams": true,
+    "shadow": true,
+    "composites": true,
+    "unreachable": true
+  },
+  "testOnSave": true,
+  "buildOnSave": true,
+  "filePatterns": {
+    "go": ["**/*.go"],
+    "gotest": ["**/*_test.go"],
+    "markdown": ["**/*.md"],
+    "makefile": ["**/Makefile"],
+    "dockerfile": ["**/Dockerfile"],
+    "yaml": ["**/*.yml", "**/*.yaml"]
+  },
+  "ignorePatterns": [
+    "**/vendor/**",
+    "**/dist/**",
+    "**/build/**",
+    "**/test/**"
+  ],
+  "importOrganization": {
+    "enabled": true,
+    "grouping": [
+      "std",
+      "external",
+      "local"
+    ]
+  },
+  "suggestions": {
+    "parameterHints": true,
+    "completionDocumentation": true,
+    "functionSignatureHelp": true
+  }
+} 
