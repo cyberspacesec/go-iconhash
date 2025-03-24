@@ -59,7 +59,7 @@ func runURL(cmd *cobra.Command, args []string) {
 	// Debug info if enabled
 	if Debug {
 		fmt.Fprintf(os.Stderr, "🔍 URL: %s\n", URL)
-		fmt.Fprintf(os.Stderr, "🔧 Options: uint32=%v, timeout=%ds, skip-verify=%v\n",
+		fmt.Fprintf(os.Stderr, "🔧 Options: uint32=%v, timeout=%.0fs, skip-verify=%v\n",
 			options.UseUint32, options.RequestTimeout.Seconds(), options.InsecureSkipVerify)
 		if options.UserAgent != "" {
 			fmt.Fprintf(os.Stderr, "🕵️ User-Agent: %s\n", options.UserAgent)
