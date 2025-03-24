@@ -185,6 +185,13 @@ function deployToGitHubPages() {
     log('创建.nojekyll文件...');
     fs.writeFileSync(path.join(TEMP_DIR, '.nojekyll'), '');
 
+    // 创建404.html (与index.html相同，用于SPA路由)
+    log('创建404.html文件支持SPA路由...');
+    const indexFile = path.join(TEMP_DIR, 'index.html');
+    if (fs.existsSync(indexFile)) {
+      fs.copyFileSync(indexFile, path.join(TEMP_DIR, '404.html'));
+    }
+
     // 添加CNAME文件（如果需要自定义域名）
     // fs.writeFileSync(path.join(TEMP_DIR, 'CNAME'), 'your-domain.com');
 

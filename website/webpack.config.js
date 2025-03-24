@@ -4,9 +4,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   entry: './src/index.tsx',
   output: {
-    path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
-    publicPath: '/',
+    path: path.resolve(__dirname, 'dist'),
+    publicPath: process.env.NODE_ENV === 'production' ? '/go-iconhash/' : '/',
+    clean: true,
   },
   resolve: {
     extensions: ['.tsx', '.ts', '.js', '.jsx', '.json'],
